@@ -43,6 +43,8 @@
             --accent-3: #00cec9;
             --accent-gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #00cec9);
             --accent-glow: rgba(108, 92, 231, 0.15);
+            --nav-scrolled-bg: rgba(10, 10, 15, 0.8);
+            --mobile-menu-bg: rgba(10, 10, 15, 0.98);
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
             --radius-sm: 8px;
@@ -53,6 +55,42 @@
             --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
+        [data-theme="light"] {
+            --bg-primary: #f8f9fc;
+            --bg-secondary: #eef0f5;
+            --bg-card: rgba(0, 0, 0, 0.025);
+            --bg-card-hover: rgba(0, 0, 0, 0.05);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a7a;
+            --text-muted: #8888a0;
+            --accent-1: #5b4cdb;
+            --accent-2: #7c6fef;
+            --accent-3: #00b3ae;
+            --accent-gradient: linear-gradient(135deg, #5b4cdb, #7c6fef, #00b3ae);
+            --accent-glow: rgba(91, 76, 219, 0.12);
+            --nav-scrolled-bg: rgba(248, 249, 252, 0.85);
+            --mobile-menu-bg: rgba(248, 249, 252, 0.97);
+        }
+
+        [data-theme="light"] .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
+        [data-theme="light"] .bg-glow { opacity: 0.06; }
+
+        [data-theme="light"] .nav--scrolled {
+            background: var(--nav-scrolled-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        [data-theme="light"] ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        [data-theme="light"] ::-webkit-scrollbar-thumb { background: var(--accent-1); }
 
         html {
             scroll-behavior: smooth;
@@ -149,11 +187,44 @@
         }
 
         .nav--scrolled {
-            background: rgba(10, 10, 15, 0.8);
+            background: var(--nav-scrolled-bg);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid var(--border-color);
         }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent-2);
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            transition: var(--transition-fast);
+        }
+
+        .theme-toggle .icon-moon { display: block; }
+        .theme-toggle .icon-sun { display: none; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 
         .nav__inner {
             max-width: 1200px;
@@ -323,17 +394,17 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background:
-                linear-gradient(135deg,
-                    rgba(108, 92, 231, 0.0) 0%,
-                    rgba(108, 92, 231, 0.15) 25%,
-                    rgba(162, 155, 254, 0.0) 50%,
-                    rgba(0, 206, 201, 0.15) 75%,
-                    rgba(108, 92, 231, 0.0) 100%);
-            background-size: 200% 200%;
-            animation: holographicShift 4s ease-in-out infinite;
-            mix-blend-mode: screen;
             pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero__photo-mesh svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.35;
+            animation: meshScroll 10s linear infinite;
         }
 
         .hero__photo-mesh::before {
@@ -341,17 +412,16 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background: repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 3px,
-                    rgba(162, 155, 254, 0.04) 3px,
-                    rgba(162, 155, 254, 0.04) 4px),
-                repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 3px,
-                    rgba(0, 206, 201, 0.04) 3px,
-                    rgba(0, 206, 201, 0.04) 4px);
-            animation: meshScroll 8s linear infinite;
+            background:
+                linear-gradient(135deg,
+                    rgba(108, 92, 231, 0.0) 0%,
+                    rgba(108, 92, 231, 0.25) 30%,
+                    rgba(162, 155, 254, 0.0) 50%,
+                    rgba(0, 206, 201, 0.25) 70%,
+                    rgba(108, 92, 231, 0.0) 100%);
+            background-size: 200% 200%;
+            animation: holographicShift 4s ease-in-out infinite;
+            mix-blend-mode: color-dodge;
         }
 
         .hero__photo-mesh::after {
@@ -360,38 +430,43 @@
             inset: 0;
             border-radius: 50%;
             background:
-                radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.2) 0%, transparent 50%);
-            animation: holographicGlow 6s ease-in-out infinite alternate;
+                radial-gradient(ellipse at 25% 25%, rgba(108, 92, 231, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 75%, rgba(0, 206, 201, 0.3) 0%, transparent 50%);
+            animation: holographicGlow 5s ease-in-out infinite alternate;
             mix-blend-mode: screen;
         }
 
         .hero__photo-ring {
             position: absolute;
-            inset: -4px;
+            inset: -3px;
             border-radius: 50%;
-            padding: 4px;
             background: var(--accent-gradient);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: ringRotate 8s linear infinite;
+            z-index: -1;
+            animation: ringRotate 10s linear infinite;
+        }
+
+        .hero__photo-ring::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: var(--bg-primary);
         }
 
         .hero__photo-sparkle {
             position: absolute;
-            inset: -20px;
+            inset: -16px;
             border-radius: 50%;
             background: conic-gradient(from 0deg,
                     transparent 0deg,
-                    rgba(162, 155, 254, 0.15) 60deg,
+                    rgba(162, 155, 254, 0.12) 60deg,
                     transparent 120deg,
-                    rgba(0, 206, 201, 0.15) 200deg,
+                    rgba(0, 206, 201, 0.12) 200deg,
                     transparent 260deg,
-                    rgba(108, 92, 231, 0.1) 320deg,
+                    rgba(108, 92, 231, 0.08) 320deg,
                     transparent 360deg);
-            animation: ringRotate 12s linear infinite reverse;
-            filter: blur(8px);
+            animation: ringRotate 15s linear infinite reverse;
+            filter: blur(6px);
         }
 
         @keyframes holographicShift {
@@ -793,8 +868,8 @@
             position: absolute;
             top: 2rem;
             right: 2rem;
-            font-size: 3rem;
-            opacity: 0.1;
+            color: var(--accent-2);
+            opacity: 0.25;
         }
 
         /* ===== Skills ===== */
@@ -819,8 +894,9 @@
         }
 
         .skill-group__icon {
-            font-size: 1.75rem;
+            color: var(--accent-2);
             margin-bottom: 1rem;
+            line-height: 1;
         }
 
         .skill-group__title {
@@ -1056,7 +1132,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(10, 10, 15, 0.95);
+                background: var(--mobile-menu-bg);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
@@ -1146,11 +1222,17 @@
                 <li><a href="#projects" class="nav__link" onclick="closeMenu()">Projects</a></li>
                 <li><a href="#contact" class="nav__link" onclick="closeMenu()">Contact</a></li>
             </ul>
-            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div style="display:flex;align-items:center;gap:0.25rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1196,7 +1278,49 @@
                 <div class="hero__photo-ring"></div>
                 <div class="hero__photo-container">
                     <img src="assets/profile.jpg" alt="Ziyang Hong" class="hero__photo" />
-                    <div class="hero__photo-mesh"></div>
+                    <div class="hero__photo-mesh">
+                        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="meshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#6c5ce7" stop-opacity="0.6"/>
+                                    <stop offset="50%" stop-color="#a29bfe" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#00cec9" stop-opacity="0.6"/>
+                                </linearGradient>
+                            </defs>
+                            <g stroke="url(#meshGrad)" stroke-width="0.5" fill="none">
+                                <line x1="0" y1="0" x2="320" y2="320"/>
+                                <line x1="40" y1="0" x2="320" y2="280"/>
+                                <line x1="80" y1="0" x2="320" y2="240"/>
+                                <line x1="120" y1="0" x2="320" y2="200"/>
+                                <line x1="160" y1="0" x2="320" y2="160"/>
+                                <line x1="200" y1="0" x2="320" y2="120"/>
+                                <line x1="240" y1="0" x2="320" y2="80"/>
+                                <line x1="280" y1="0" x2="320" y2="40"/>
+                                <line x1="0" y1="40" x2="280" y2="320"/>
+                                <line x1="0" y1="80" x2="240" y2="320"/>
+                                <line x1="0" y1="120" x2="200" y2="320"/>
+                                <line x1="0" y1="160" x2="160" y2="320"/>
+                                <line x1="0" y1="200" x2="120" y2="320"/>
+                                <line x1="0" y1="240" x2="80" y2="320"/>
+                                <line x1="0" y1="280" x2="40" y2="320"/>
+                                <line x1="320" y1="0" x2="0" y2="320"/>
+                                <line x1="280" y1="0" x2="0" y2="280"/>
+                                <line x1="240" y1="0" x2="0" y2="240"/>
+                                <line x1="200" y1="0" x2="0" y2="200"/>
+                                <line x1="160" y1="0" x2="0" y2="160"/>
+                                <line x1="120" y1="0" x2="0" y2="120"/>
+                                <line x1="80" y1="0" x2="0" y2="80"/>
+                                <line x1="40" y1="0" x2="0" y2="40"/>
+                                <line x1="320" y1="40" x2="40" y2="320"/>
+                                <line x1="320" y1="80" x2="80" y2="320"/>
+                                <line x1="320" y1="120" x2="120" y2="320"/>
+                                <line x1="320" y1="160" x2="160" y2="320"/>
+                                <line x1="320" y1="200" x2="200" y2="320"/>
+                                <line x1="320" y1="240" x2="240" y2="320"/>
+                                <line x1="320" y1="280" x2="280" y2="320"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1299,7 +1423,7 @@
                 <div class="timeline__date">Oct 2017 — Mar 2018</div>
                 <div class="timeline__card">
                     <div class="timeline__role">Quality Assurance Auditor, Intern</div>
-                    <div class="timeline__company">ASM PT Ltd</div>
+                    <div class="timeline__company">ASMPT Ltd</div>
                     <div class="timeline__desc">
                         Identified and addressed process deviations, contributing to the reduction in defect rates and
                         improved production efficiency.
@@ -1323,7 +1447,7 @@
             <h2 class="section__title">Academic background.</h2>
         </div>
         <div class="edu-card reveal">
-            <div class="edu-card__icon">🎓</div>
+            <div class="edu-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></div>
             <div class="edu-card__degree">BSc (Hons) in Applied Artificial Intelligence</div>
             <div class="edu-card__school">Singapore Institute of Technology (SIT) · Aug 2023 — Apr 2026</div>
             <div class="edu-card__detail">
@@ -1346,7 +1470,7 @@
         </div>
         <div class="skills__grid reveal">
             <div class="skill-group">
-                <div class="skill-group__icon">🧠</div>
+                <div class="skill-group__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><path d="M16 16c2 1 3 2.5 3 4H5c0-1.5 1-3 3-4"/><path d="M9 10h6"/></svg></div>
                 <div class="skill-group__title">AI & Machine Learning</div>
                 <div class="skill-group__items">
                     <span class="skill-pill">Deep Learning</span>
@@ -1359,7 +1483,7 @@
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-group__icon">💻</div>
+                <div class="skill-group__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg></div>
                 <div class="skill-group__title">Programming Languages</div>
                 <div class="skill-group__items">
                     <span class="skill-pill">Python</span>
@@ -1370,7 +1494,7 @@
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-group__icon">🛠️</div>
+                <div class="skill-group__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                 <div class="skill-group__title">Platforms & Tools</div>
                 <div class="skill-group__items">
                     <span class="skill-pill">NumPy</span>
@@ -1385,7 +1509,7 @@
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-group__icon">🗄️</div>
+                <div class="skill-group__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
                 <div class="skill-group__title">Databases & Data</div>
                 <div class="skill-group__items">
                     <span class="skill-pill">PostgreSQL / pgAdmin 4</span>
@@ -1410,7 +1534,7 @@
             <!-- Multimodal Profanity Detection -->
             <div class="project-card">
                 <div class="project-card__header">
-                    <span class="project-card__icon">🛡️</span>
+                    <span class="project-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
                     <div class="project-card__links">
                         <a href="https://github.com/H-ZY99/profanity-detection.git" target="_blank"
                             rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
@@ -1443,7 +1567,7 @@
             <!-- Speech Emotion Recognition -->
             <div class="project-card">
                 <div class="project-card__header">
-                    <span class="project-card__icon">🎙️</span>
+                    <span class="project-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v3a7 7 0 0 0 14 0v-3"/><line x1="9" y1="21" x2="9" y2="17"/><line x1="5" y1="21" x2="13" y2="21"/><rect x="5" y="2" rx="3" width="8" height="12"/></svg></span>
                     <div class="project-card__links">
                         <a href="https://github.com/H-ZY99/Speech-Emotion-Recognition-using-Wav2Vec2.git"
                             target="_blank" rel="noopener noreferrer" class="project-card__link"
@@ -1477,7 +1601,7 @@
             <!-- Data Breaches Visualisation -->
             <div class="project-card">
                 <div class="project-card__header">
-                    <span class="project-card__icon">📊</span>
+                    <span class="project-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
                     <div class="project-card__links">
                         <a href="https://github.com/H-ZY99/Interactive-Data-Breach-Visualizer.git" target="_blank"
                             rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
@@ -1510,7 +1634,7 @@
             <!-- FoodVision -->
             <div class="project-card">
                 <div class="project-card__header">
-                    <span class="project-card__icon">🍔</span>
+                    <span class="project-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg></span>
                     <div class="project-card__links">
                         <a href="https://github.com/H-ZY99/FoodVision.git" target="_blank" rel="noopener noreferrer"
                             class="project-card__link" aria-label="View FoodVision on GitHub">
@@ -1587,6 +1711,24 @@
 
     <!-- JavaScript -->
     <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+
+        function setTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        // Load saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         let lastScroll = 0;
