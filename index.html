@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyang Hong | Applied AI Developer</title>
-    <meta name="description" content="Ziyang Hong — Applied AI developer based in Singapore. Specializing in Deep Learning, Computer Vision, NLP, and Multimodal AI systems.">
-    <meta name="keywords" content="Ziyang Hong, AI Developer, Deep Learning, Computer Vision, NLP, Singapore, SIT, Applied AI">
+    <meta name="description"
+        content="Ziyang Hong — Applied AI developer based in Singapore. Specializing in Deep Learning, Computer Vision, NLP, and Multimodal AI systems.">
+    <meta name="keywords"
+        content="Ziyang Hong, AI Developer, Deep Learning, Computer Vision, NLP, Singapore, SIT, Applied AI">
     <meta property="og:title" content="Ziyang Hong | Applied AI Developer">
-    <meta property="og:description" content="Mission Driven — Staying Curious. Applied AI developer based in Singapore.">
+    <meta property="og:description"
+        content="Mission Driven — Staying Curious. Applied AI developer based in Singapore.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== CSS Reset & Variables ===== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -63,17 +71,26 @@
         }
 
         /* ===== Scrollbar ===== */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 3px; }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-1);
+            border-radius: 3px;
+        }
 
         /* ===== Background Effects ===== */
         .bg-grid {
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: 0;
@@ -105,9 +122,19 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.05); }
-            66% { transform: translate(-20px, 20px) scale(0.95); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
         }
 
         /* ===== Navigation ===== */
@@ -296,8 +323,8 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background: 
-                linear-gradient(135deg, 
+            background:
+                linear-gradient(135deg,
                     rgba(108, 92, 231, 0.0) 0%,
                     rgba(108, 92, 231, 0.15) 25%,
                     rgba(162, 155, 254, 0.0) 50%,
@@ -314,20 +341,16 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 3px,
-                rgba(162, 155, 254, 0.04) 3px,
-                rgba(162, 155, 254, 0.04) 4px
-            ),
-            repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 3px,
-                rgba(0, 206, 201, 0.04) 3px,
-                rgba(0, 206, 201, 0.04) 4px
-            );
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(162, 155, 254, 0.04) 3px,
+                    rgba(162, 155, 254, 0.04) 4px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(0, 206, 201, 0.04) 3px,
+                    rgba(0, 206, 201, 0.04) 4px);
             animation: meshScroll 8s linear infinite;
         }
 
@@ -336,7 +359,7 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background: 
+            background:
                 radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.2) 0%, transparent 50%);
             animation: holographicGlow 6s ease-in-out infinite alternate;
@@ -359,37 +382,65 @@
             position: absolute;
             inset: -20px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, 
-                transparent 0deg, 
-                rgba(162, 155, 254, 0.15) 60deg, 
-                transparent 120deg, 
-                rgba(0, 206, 201, 0.15) 200deg, 
-                transparent 260deg,
-                rgba(108, 92, 231, 0.1) 320deg,
-                transparent 360deg);
+            background: conic-gradient(from 0deg,
+                    transparent 0deg,
+                    rgba(162, 155, 254, 0.15) 60deg,
+                    transparent 120deg,
+                    rgba(0, 206, 201, 0.15) 200deg,
+                    transparent 260deg,
+                    rgba(108, 92, 231, 0.1) 320deg,
+                    transparent 360deg);
             animation: ringRotate 12s linear infinite reverse;
             filter: blur(8px);
         }
 
         @keyframes holographicShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes meshScroll {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(4px, 4px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(4px, 4px);
+            }
         }
 
         @keyframes holographicGlow {
-            0% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.02); }
-            100% { opacity: 0.4; transform: scale(1); }
+            0% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
         }
 
         @keyframes ringRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .hero__badge {
@@ -415,8 +466,17 @@
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 206, 201, 0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 206, 201, 0); }
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(0, 206, 201, 0.4);
+            }
+
+            50% {
+                opacity: 0.7;
+                box-shadow: 0 0 0 6px rgba(0, 206, 201, 0);
+            }
         }
 
         .hero__greeting {
@@ -460,8 +520,15 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ===== Buttons ===== */
@@ -826,7 +893,7 @@
             opacity: 0.03;
         }
 
-        .project-card > * {
+        .project-card>* {
             position: relative;
             z-index: 1;
         }
@@ -1060,6 +1127,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Background Effects -->
     <div class="bg-grid"></div>
@@ -1099,19 +1167,34 @@
                     <span class="hero__name-gradient">Hong</span>
                 </h1>
                 <p class="hero__tagline">
-                    Highly motivated AI graduate equipped with a continuous growth mindset, passionate about solving complex problems and driving impactful solutions. Mission driven — staying curious.
+                    Highly motivated AI graduate equipped with a continuous growth mindset, passionate about solving
+                    complex problems and driving impactful solutions. Mission driven — staying curious.
                 </p>
                 <div class="hero__actions">
                     <a href="#contact" class="btn btn--primary">
                         Get In Touch
-                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
                     </a>
                     <a href="CV/HongZiyang-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
                         Download CV
                     </a>
-                    <a href="https://github.com/H-ZY99" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-                        <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <a href="https://github.com/H-ZY99" target="_blank" rel="noopener noreferrer"
+                        class="btn btn--ghost">
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
                         GitHub
                     </a>
                 </div>
@@ -1138,13 +1221,17 @@
         <div class="about__grid">
             <div class="about__text reveal">
                 <p>
-                    I'm Ziyang, a recent Applied AI graduate from the Singapore Institute of Technology (Honours with Distinction) with a deep passion for building intelligent systems that solve real-world problems.
+                    I'm Ziyang, a recent Applied AI graduate from the Singapore Institute of Technology (Honours with
+                    Distinction) with a deep passion for building intelligent systems that solve real-world problems.
                 </p>
                 <p>
-                    My goal is to harness the power of modern technology to make a positive impact on society. I possess a strong passion for solving complex problems, equipped with a continuous growth mindset and the agility to adapt quickly to dynamic environments.
+                    My goal is to harness the power of modern technology to make a positive impact on society. I possess
+                    a strong passion for solving complex problems, equipped with a continuous growth mindset and the
+                    agility to adapt quickly to dynamic environments.
                 </p>
                 <p>
-                    Most recently, I interned with <strong>AETHER / RAiD</strong> at the Republic of Singapore Air Force, working on Multi-Agent Reinforcement Learning for autonomous drone swarm navigation.
+                    Most recently, I interned with <strong>AETHER / RAiD</strong> at the Republic of Singapore Air
+                    Force, working on Multi-Agent Reinforcement Learning for autonomous drone swarm navigation.
                 </p>
             </div>
             <div class="about__stats reveal">
@@ -1184,7 +1271,9 @@
                     <div class="timeline__role">AI Solution Intern, MARL Team</div>
                     <div class="timeline__company">AETHER with RAiD, RSAF</div>
                     <div class="timeline__desc">
-                        Explored Multi-Agent Reinforcement Learning (MARL) for autonomous drone swarm operations. Capstone research featured a hybrid framework for drone swarm navigation, integrating global path planning with MARL algorithms.
+                        Explored Multi-Agent Reinforcement Learning (MARL) for autonomous drone swarm operations.
+                        Capstone research featured a hybrid framework for drone swarm navigation, integrating global
+                        path planning with MARL algorithms.
                     </div>
                     <div class="timeline__tags">
                         <span class="tag">MARL</span>
@@ -1201,7 +1290,9 @@
                     <div class="timeline__role">Service Medic cum Dispensary Dept In-Charge</div>
                     <div class="timeline__company">Republic of Singapore Air Force · National Service</div>
                     <div class="timeline__desc">
-                        Led and managed a team of 4 personnel, optimizing task delegation and coordination for efficient medical support delivery. Oversaw inventory management leveraging SAP software for transaction management and supply chain monitoring.
+                        Led and managed a team of 4 personnel, optimizing task delegation and coordination for efficient
+                        medical support delivery. Oversaw inventory management leveraging SAP software for transaction
+                        management and supply chain monitoring.
                     </div>
                     <div class="timeline__tags">
                         <span class="tag">Leadership</span>
@@ -1218,7 +1309,8 @@
                     <div class="timeline__role">Quality Assurance Auditor, Intern</div>
                     <div class="timeline__company">ASM PT Ltd</div>
                     <div class="timeline__desc">
-                        Identified and addressed process deviations, contributing to the reduction in defect rates and improved production efficiency.
+                        Identified and addressed process deviations, contributing to the reduction in defect rates and
+                        improved production efficiency.
                     </div>
                     <div class="timeline__tags">
                         <span class="tag">Quality Assurance</span>
@@ -1244,7 +1336,9 @@
             <div class="edu-card__school">Singapore Institute of Technology (SIT) · Aug 2023 — Apr 2026</div>
             <div class="edu-card__detail">
                 <strong>Honours with Distinction</strong> · GPA: 4.18 / 5.00 · Conferred 28 May 2026<br><br>
-                Specialised in deep learning, computer vision, natural language processing, multimodal AI systems, and multi-agent reinforcement learning. Engaged in hands-on projects bridging academic research with real-world applications.
+                Specialised in deep learning, computer vision, natural language processing, multimodal AI systems, and
+                multi-agent reinforcement learning. Engaged in hands-on projects bridging academic research with
+                real-world applications.
             </div>
         </div>
     </section>
@@ -1325,16 +1419,22 @@
                 <div class="project-card__header">
                     <span class="project-card__icon">🛡️</span>
                     <div class="project-card__links">
-                        <a href="https://github.com/H-ZY99/profanity-detection.git" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <a href="https://github.com/H-ZY99/profanity-detection.git" target="_blank"
+                            rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <h3 class="project-card__title">
-                    <a href="https://github.com/H-ZY99/profanity-detection.git" target="_blank" rel="noopener noreferrer">Multimodal LLM Profanity Detection & Detoxification</a>
+                    <a href="https://github.com/H-ZY99/profanity-detection.git" target="_blank"
+                        rel="noopener noreferrer">Multimodal LLM Profanity Detection & Detoxification</a>
                 </h3>
                 <p class="project-card__desc">
-                    Spearheaded a team of 5 to design, develop, and deploy a multimodal system for intelligent content moderation using large language models.
+                    Spearheaded a team of 5 to design, develop, and deploy a multimodal system for intelligent content
+                    moderation using large language models.
                 </p>
                 <div class="project-card__tech">
                     <span class="project-card__tech-tag">Jan — Mar 2025</span>
@@ -1352,16 +1452,23 @@
                 <div class="project-card__header">
                     <span class="project-card__icon">🎙️</span>
                     <div class="project-card__links">
-                        <a href="https://github.com/H-ZY99/Speech-Emotion-Recognition-using-Wav2Vec2.git" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <a href="https://github.com/H-ZY99/Speech-Emotion-Recognition-using-Wav2Vec2.git"
+                            target="_blank" rel="noopener noreferrer" class="project-card__link"
+                            aria-label="View on GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <h3 class="project-card__title">
-                    <a href="https://github.com/H-ZY99/Speech-Emotion-Recognition-using-Wav2Vec2.git" target="_blank" rel="noopener noreferrer">Speech Emotion Recognition</a>
+                    <a href="https://github.com/H-ZY99/Speech-Emotion-Recognition-using-Wav2Vec2.git" target="_blank"
+                        rel="noopener noreferrer">Speech Emotion Recognition</a>
                 </h3>
                 <p class="project-card__desc">
-                    Deep learning system for recognising emotions from speech audio using the Wav2Vec2 model architecture. Achieved 69.02% accuracy on the IEMOCAP dataset.
+                    Deep learning system for recognising emotions from speech audio using the Wav2Vec2 model
+                    architecture. Achieved 69.02% accuracy on the IEMOCAP dataset.
                 </p>
                 <div class="project-card__tech">
                     <span class="project-card__tech-tag">Sep — Oct 2024</span>
@@ -1379,16 +1486,22 @@
                 <div class="project-card__header">
                     <span class="project-card__icon">📊</span>
                     <div class="project-card__links">
-                        <a href="https://github.com/H-ZY99/Interactive-Data-Breach-Visualizer.git" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <a href="https://github.com/H-ZY99/Interactive-Data-Breach-Visualizer.git" target="_blank"
+                            rel="noopener noreferrer" class="project-card__link" aria-label="View on GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <h3 class="project-card__title">
-                    <a href="https://github.com/H-ZY99/Interactive-Data-Breach-Visualizer.git" target="_blank" rel="noopener noreferrer">World's Biggest Data Breaches & Hacks</a>
+                    <a href="https://github.com/H-ZY99/Interactive-Data-Breach-Visualizer.git" target="_blank"
+                        rel="noopener noreferrer">World's Biggest Data Breaches & Hacks</a>
                 </h3>
                 <p class="project-card__desc">
-                    Led a team of 6 to create an interactive data visualisation system analysing global cybersecurity breaches and trends over time.
+                    Led a team of 6 to create an interactive data visualisation system analysing global cybersecurity
+                    breaches and trends over time.
                 </p>
                 <div class="project-card__tech">
                     <span class="project-card__tech-tag">Jun — Jul 2024</span>
@@ -1406,16 +1519,22 @@
                 <div class="project-card__header">
                     <span class="project-card__icon">🍔</span>
                     <div class="project-card__links">
-                        <a href="https://github.com/H-ZY99/FoodVision.git" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View FoodVision on GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <a href="https://github.com/H-ZY99/FoodVision.git" target="_blank" rel="noopener noreferrer"
+                            class="project-card__link" aria-label="View FoodVision on GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <h3 class="project-card__title">
-                    <a href="https://github.com/H-ZY99/FoodVision.git" target="_blank" rel="noopener noreferrer">FoodVision</a>
+                    <a href="https://github.com/H-ZY99/FoodVision.git" target="_blank"
+                        rel="noopener noreferrer">FoodVision</a>
                 </h3>
                 <p class="project-card__desc">
-                    Computer vision model for food classification and detection using YOLOv8. Trained to recognise and classify various food items from images with high accuracy.
+                    Computer vision model for food classification and detection using YOLOv8. Trained to recognise and
+                    classify various food items from images with high accuracy.
                 </p>
                 <div class="project-card__tech">
                     <span class="project-card__tech-tag">Python</span>
@@ -1440,16 +1559,28 @@
             </p>
             <div class="contact__links">
                 <a href="mailto:hongziyang63@gmail.com" class="contact__link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
                     Email
                 </a>
-                <a href="https://www.linkedin.com/in/ziyang-hong-dr/" target="_blank" rel="noopener noreferrer" class="contact__link">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href="https://www.linkedin.com/in/ziyang-hong-dr/" target="_blank" rel="noopener noreferrer"
+                    class="contact__link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
                     LinkedIn
                 </a>
                 <a href="https://github.com/H-ZY99" target="_blank" rel="noopener noreferrer" class="contact__link">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
                     GitHub
+                </a>
             </div>
         </div>
     </section>
@@ -1507,7 +1638,7 @@
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1517,4 +1648,5 @@
         });
     </script>
 </body>
+
 </html>
