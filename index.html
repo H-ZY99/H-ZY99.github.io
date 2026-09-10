@@ -254,8 +254,142 @@
             padding-top: 72px;
         }
 
+        .hero__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            width: 100%;
+        }
+
         .hero__content {
-            max-width: 720px;
+            max-width: 600px;
+            flex: 1;
+        }
+
+        .hero__photo-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            width: 320px;
+            height: 320px;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero__photo-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .hero__photo-mesh {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(108, 92, 231, 0.0) 0%,
+                    rgba(108, 92, 231, 0.15) 25%,
+                    rgba(162, 155, 254, 0.0) 50%,
+                    rgba(0, 206, 201, 0.15) 75%,
+                    rgba(108, 92, 231, 0.0) 100%);
+            background-size: 200% 200%;
+            animation: holographicShift 4s ease-in-out infinite;
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+
+        .hero__photo-mesh::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(162, 155, 254, 0.04) 3px,
+                rgba(162, 155, 254, 0.04) 4px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 3px,
+                rgba(0, 206, 201, 0.04) 3px,
+                rgba(0, 206, 201, 0.04) 4px
+            );
+            animation: meshScroll 8s linear infinite;
+        }
+
+        .hero__photo-mesh::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.2) 0%, transparent 50%);
+            animation: holographicGlow 6s ease-in-out infinite alternate;
+            mix-blend-mode: screen;
+        }
+
+        .hero__photo-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            padding: 4px;
+            background: var(--accent-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: ringRotate 8s linear infinite;
+        }
+
+        .hero__photo-sparkle {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, 
+                transparent 0deg, 
+                rgba(162, 155, 254, 0.15) 60deg, 
+                transparent 120deg, 
+                rgba(0, 206, 201, 0.15) 200deg, 
+                transparent 260deg,
+                rgba(108, 92, 231, 0.1) 320deg,
+                transparent 360deg);
+            animation: ringRotate 12s linear infinite reverse;
+            filter: blur(8px);
+        }
+
+        @keyframes holographicShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes meshScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(4px, 4px); }
+        }
+
+        @keyframes holographicGlow {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+            100% { opacity: 0.4; transform: scale(1); }
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero__badge {
@@ -892,8 +1026,23 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero__inner {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero__photo-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .hero__badge {
+                justify-content: center;
+            }
+
             .hero__actions {
                 flex-direction: column;
+                align-items: center;
             }
 
             .btn {
@@ -937,34 +1086,43 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="section hero" id="hero">
-        <div class="hero__content">
-            <div class="hero__badge">
-                <span class="hero__badge-dot"></span>
-                Based in Singapore
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    Based in Singapore
+                </div>
+                <p class="hero__greeting">Hello, I'm</p>
+                <h1 class="hero__name">
+                    Ziyang<br>
+                    <span class="hero__name-gradient">Hong</span>
+                </h1>
+                <p class="hero__tagline">
+                    Highly motivated AI graduate equipped with a continuous growth mindset, passionate about solving complex problems and driving impactful solutions. Mission driven — staying curious.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary">
+                        Get In Touch
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="CV/HongZiyang-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        Download CV
+                    </a>
+                    <a href="https://github.com/H-ZY99" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
             </div>
-            <p class="hero__greeting">Hello, I'm</p>
-            <h1 class="hero__name">
-                Ziyang<br>
-                <span class="hero__name-gradient">Hong</span>
-            </h1>
-            <p class="hero__tagline">
-                Highly motivated AI graduate equipped with a continuous growth mindset, passionate about solving complex problems and driving impactful solutions. Mission driven — staying curious.
-            </p>
-            <div class="hero__actions">
-                <a href="#contact" class="btn btn--primary">
-                    Get In Touch
-                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="CV/HongZiyang-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                    Download CV
-                </a>
-                <a href="https://github.com/H-ZY99" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-                    <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    GitHub
-                </a>
+            <div class="hero__photo-wrapper">
+                <div class="hero__photo-sparkle"></div>
+                <div class="hero__photo-ring"></div>
+                <div class="hero__photo-container">
+                    <img src="assets/profile.png" alt="Ziyang Hong" class="hero__photo" />
+                    <div class="hero__photo-mesh"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -991,8 +1149,8 @@
             </div>
             <div class="about__stats reveal">
                 <div class="stat-card">
-                    <div class="stat-card__number">4.18</div>
-                    <div class="stat-card__label">GPA / 5.00</div>
+                    <div class="stat-card__number">SIT</div>
+                    <div class="stat-card__label">Hons with Distinction</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-card__number">AI</div>
@@ -1294,7 +1452,7 @@
                     GitHub
                 </a>
                 <a href="https://huggingface.co/Ziyang99" target="_blank" rel="noopener noreferrer" class="contact__link">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 4.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 10.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm10 0c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-5 4c2.5 0 4.5 1.5 4.5 3.5h-9c0-2 2-3.5 4.5-3.5z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.813 0C2.606 0 0 2.606 0 5.813v12.374C0 21.394 2.606 24 5.813 24h12.374C21.394 24 24 21.394 24 18.187V5.813C24 2.606 21.394 0 18.187 0zm1.669 4.408c.678 0 1.229.55 1.229 1.229 0 .678-.55 1.228-1.229 1.228-.678 0-1.228-.55-1.228-1.228 0-.679.55-1.229 1.228-1.229zm9.036 0c.678 0 1.228.55 1.228 1.229 0 .678-.55 1.228-1.228 1.228-.679 0-1.229-.55-1.229-1.228 0-.679.55-1.229 1.229-1.229zm-9.93 3.873c.224-.025.447.08.558.287.56 1.046 1.651 1.752 2.906 1.752h3.896c1.255 0 2.346-.706 2.906-1.752.144-.269.477-.37.746-.226.269.144.37.477.226.746-.726 1.356-2.145 2.268-3.878 2.268h-3.896c-1.733 0-3.152-.912-3.878-2.268-.108-.202-.076-.441.08-.598a.548.548 0 0 1 .334-.21zm-.93 4.09h12.684c.357 0 .645.29.645.645 0 3.172-2.571 5.745-5.745 5.745h-2.484c-3.174 0-5.745-2.573-5.745-5.745 0-.356.288-.645.645-.645zm2.083 1.291c-.174.37-.27.785-.27 1.222 0 1.567 1.27 2.838 2.838 2.838.569 0 1.098-.168 1.543-.457-.796-.678-1.302-1.69-1.302-2.82 0-.272.031-.537.09-.793zm7.578 0a3.84 3.84 0 0 1 .09.793c0 1.13-.506 2.142-1.302 2.82.445.29.974.457 1.543.457 1.567 0 2.838-1.27 2.838-2.838 0-.437-.097-.852-.27-1.222z"/></svg>
                     Hugging Face
                 </a>
             </div>
