@@ -950,18 +950,22 @@ h1, h2, h3, h4 {
 }
 
 .pcard__desc {
-  flex: 1;
   font-size: .94rem;
   color: var(--text-2);
   text-wrap: pretty;
 }
 
+/* Slack in a short card collects here, above the source link, instead of being
+   absorbed by the description. Stretching the description tore a gap between
+   the copy and its own chips, which read as broken. The link still
+   bottom-aligns across a row. */
 .pcard__foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: .25rem;
+  margin-top: auto;
+  padding-top: .25rem;
 }
 
 .pcard__source {
