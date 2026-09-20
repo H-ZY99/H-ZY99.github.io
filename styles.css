@@ -558,52 +558,41 @@ h1, h2, h3, h4 {
 }
 
 .hero__figure {
-  position: relative;
   justify-self: center;
-  /* Sized to fill the hero rather than float in it: a small portrait leaves
-     the whole composition stranded mid-viewport on a tall desktop screen. */
-  width: min(100%, 420px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  /* 320px against a 336px source is essentially 1:1. The previous 420px was
+     a 1.7x upscale, which is what made the portrait look soft. */
+  width: min(100%, 320px);
 }
 
+/* Round crop, avatar style. The source is square, so object-fit fills the
+   circle edge to edge with no distortion. The hairline keeps the circle
+   defined in light mode, where the photo's backdrop is close to the page. */
 .hero__portrait {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center top;
-  border-radius: var(--r-img);
-  border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-3);
+  border-radius: var(--r-full);
   background: var(--surface);
+  border: 1px solid var(--border-strong);
 }
 
-/* Location caption on the portrait. A factual caption, not a status chip,
-   so it carries no pulsing dot. */
+/* Location caption. Sits below the portrait rather than on top of it: over the
+   figure it crowded the chest and needed a frosted panel to stay readable. */
 .hero__caption {
-  position: absolute;
-  left: .75rem;
-  bottom: .75rem;
-  right: .75rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  width: fit-content;
-  max-width: calc(100% - 1.5rem);
-  padding: .45rem .7rem;
+  gap: .45rem;
   font-family: var(--font-mono);
-  font-size: .72rem;
-  letter-spacing: .03em;
-  color: var(--text);
-  background: color-mix(in srgb, var(--bg) 72%, transparent);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--r-xs);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--text-3);
 }
 .hero__caption .icon { color: var(--accent); }
-
-/* The rotating gradient ring, holographic blend layers and diagonal mesh
-   overlay are all retired. The portrait carries itself with a hairline and
-   one accent-tinted shadow. */
 
 
 /* 09  About
@@ -1128,7 +1117,7 @@ h1, h2, h3, h4 {
 
   .hero__inner { grid-template-columns: 1fr; }
   /* Portrait first on small screens, before the text block. */
-  .hero__figure { order: -1; width: min(72vw, 260px); justify-self: start; }
+  .hero__figure { order: -1; width: min(62vw, 240px); align-items: flex-start; justify-self: start; }
   .hero__content { align-items: flex-start; }
   .btn { flex: 1 1 auto; }
 }
@@ -1143,14 +1132,8 @@ h1, h2, h3, h4 {
     padding-bottom: 2rem;
   }
   .hero__inner { gap: 1.25rem; }
-  .hero__figure { width: min(34vw, 132px); }
-  .hero__caption {
-    left: .4rem;
-    right: .4rem;
-    bottom: .4rem;
-    padding: .3rem .45rem;
-    font-size: .62rem;
-  }
+  .hero__figure { width: min(34vw, 132px); gap: .5rem; }
+  .hero__caption { font-size: .66rem; }
   .hero__name { font-size: clamp(2rem, 8vw, 2.6rem); margin-bottom: .75rem; }
   .hero__greeting { margin-bottom: .6rem; font-size: .7rem; }
   .hero__tagline { margin-bottom: 1rem; font-size: .9rem; line-height: 1.55; }
@@ -1230,7 +1213,7 @@ h1, h2, h3, h4 {
 }
 
 @media print {
-  .nav, .progress, .grain, .skip-link, .hero__figure::before { display: none; }
+  .nav, .progress, .grain, .skip-link { display: none; }
   body { background: #fff; color: #000; }
   .section { padding-block: 1.5rem; }
   a[href^="http"]::after { content: ' (' attr(href) ')'; font-size: .8em; }
