@@ -568,17 +568,31 @@ h1, h2, h3, h4 {
   width: min(100%, 320px);
 }
 
-/* Round crop, avatar style. The source is square, so object-fit fills the
-   circle edge to edge with no distortion. The hairline keeps the circle
-   defined in light mode, where the photo's backdrop is close to the page. */
+/* Round crop, avatar style.
+   The wrapper owns the circular mask so the image inside can be nudged
+   without the mask scaling along with it. */
 .hero__portrait {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
-  object-position: center top;
   border-radius: var(--r-full);
+  overflow: hidden;
+  isolation: isolate;
   background: var(--surface);
   border: 1px solid var(--border-strong);
+}
+
+/* Framing correction, measured off the source rather than eyeballed:
+   rows 333-335 of the 336px original are blank white, which showed as a gap
+   between the suit and the circle's lower edge, and the subject's centre of
+   mass sits at x=163.3 against an image centre of 167.5, so it read as
+   off-axis across the shoulders. The scale crops the dead rows away and the
+   translate re-centres the body. */
+.hero__portrait-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(1.4%, 2.2%) scale(1.08);
 }
 
 /* Location caption. Sits below the portrait rather than on top of it: over the
