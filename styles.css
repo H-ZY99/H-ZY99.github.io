@@ -619,6 +619,33 @@ h1, h2, h3, h4 {
 
 .about__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
 
+/* Holds the stat ledger plus the talents link. At desktop the right column
+   runs much shorter than the prose, so the link fills space that was empty. */
+.about__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* align-self, not align-items on the parent: the ledger must stay full width
+   while the link shrinks to its own content. */
+.about__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-height: 44px;
+  font-family: var(--font-mono);
+  font-size: .8125rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--accent);
+  transition: color var(--t-fast);
+}
+.about__link:hover { color: var(--accent-hover); }
+.about__link .icon { transition: translate var(--t-fast); }
+.about__link:hover .icon { translate: 2px -2px; }
+
 .stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
